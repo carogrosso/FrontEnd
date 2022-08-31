@@ -1,0 +1,44 @@
+.sobremi{
+    height: 500px;
+    background-image: url(../../../assets/img/monitor.png);
+    background-color: #FEF9EF;
+    background-color: #f4f4f4;
+}
+
+h1{
+    padding: 0;
+}
+
+.texto-sobremi{
+    /* align-items: center; */
+    /* vertical-align: center; */
+    text-align: center;
+    /* background-color: rgba(255, 255, 255, 0.50); */
+    padding: 40px ;
+    background-color: #f4f4f4;
+}
+
+.col-md-4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.yo{
+    width: 300px;
+    border-radius: 50%;
+}
+
+.imgbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.presentacion{
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 650px;
+}

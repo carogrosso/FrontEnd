@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Roboto Slab', serif;
+}
+
+h1{
+    font-family: 'Berkshire Swash', cursive;
+    margin-bottom: 20px;
+    font-size: 70px;
+    text-shadow: 3px 3px #777;
+    text-align: center;
+    color: #ff5c26;    color: #ED6A5A;    color: #EE4266;
+}
+
+.btn-primary:hover{
+    background-color: #FEE440;
+    color: #333;
+    border: #555 solid 1px;
+    font-style: bold;
+    box-shadow: 3px 3px #666;
+    transition: all 200ms ease-in;
+}

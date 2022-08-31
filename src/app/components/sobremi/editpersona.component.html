@@ -1,0 +1,20 @@
+<div *ngIf="perso"> 
+    <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" >
+
+    <label for="">Nombre:</label>
+    <input type="text" name="nombre" [(ngModel)]="perso.nombre" required class="form-control" id="" placeholder="">
+
+    <label for="">Apellido:</label>
+    <input type="text" name="apellido" [(ngModel)]="perso.apellido" required class="form-control" id="" placeholder="">
+
+    <label for="">Titulo:</label>
+    <input type="text" name="titulo" [(ngModel)]="perso.titulo" required class="form-control" id="" placeholder="">
+
+    <label for="">Descripcion:</label>
+    <input type="text" name="descripcion" [(ngModel)]="perso.descripcion" required class="form-control" id="" placeholder="">
+        
+    <button type="submit" class="btn btn-primary">Editar persona</button>
+
+
+    </form>
+    </div>

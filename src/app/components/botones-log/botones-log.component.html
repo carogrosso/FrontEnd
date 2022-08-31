@@ -1,0 +1,8 @@
+<div class="botones">
+
+    <div *ngIf="userLogged|async as user; then logged else notlogged"></div>
+    <ng-template #logged><a class="usuario-activo" id="item" href="" *ngIf= "userLogged|async as user">{{user.email}}</a>
+    <button type="submit" class="btn btn-danger" id="item" *ngIf= "userLogged|async as user" (click)="logOut()">Salir</button></ng-template>
+    </div><ng-template #notlogged><a class="boton" id="boton" href="/login">Ingresar</a></ng-template>
+    
+

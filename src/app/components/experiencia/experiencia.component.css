@@ -1,0 +1,56 @@
+#experiencia{
+    background-color: #f4f4f4;
+    /* background-color: #F4F1BB;
+    background-color: #E6EBE0;
+    background-color: #FEF9EF; */
+    padding: 30px 30px;
+    height: auto;
+}
+
+/* <!-- BOTON AGREGAR EXPERIENCIA --> */
+.add-exp{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+/* <!-- FORM AGREGAR EXPERIENCIA --> */
+.form-gropu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label, button {
+    margin-top: 10px;
+}
+
+
+/* <!-- EXPERIENCIAS LABORALES --> */
+.experiencias{
+    margin-top: 30px;
+    text-align: center;
+}
+h4, h6{
+    font-weight: 800;
+}
+ul{
+    list-style: none;
+    width: 65%;
+    margin: auto;
+}
+li{
+    padding-bottom: 30px;
+}
+/* ul button{
+    float: right;
+} */
+.btn-secondary{
+    margin-right: 5px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+#cursos{
+    background-color: #f4f4f4;
+    padding: 30px 30px;
+    height: auto;
+}
+
+h6{
+    font-weight: 800;
+}
+
+ul{
+    margin-bottom: 30px;
+}
+
+label, button {
+    margin-top: 10px;
+}

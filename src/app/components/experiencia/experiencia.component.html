@@ -1,0 +1,62 @@
+<div id="experiencia" class="row">
+  <h1>Experiencia</h1>
+
+<!-- BOTON AGREGAR EXPERIENCIA -->
+<div class="add-exp" *ngIf= "userLogged | async as user">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [textContent]="showAddExp?'Cerrar':'Nueva experiencia'"
+    (click)="toggleAddExp()">
+  </button>
+</div>
+
+<!-- FORM AGREGAR EXPERIENCIA [ngModelOptions]="{standalone: true}" -->
+<div> 
+<form id="formExperiencia" *ngIf="showAddExp" (ngSubmit)="onCreate(f)" class="row" novalidate #f="ngForm" >
+  <div class="form-group col-md-3"></div>
+  <div class="form-group col-md-6">
+    <label for="">Empresa:</label>
+    <input type="text" name="empresa" [(ngModel)]="empresa" required class="form-control" id="empresa" placeholder="Ingresa el nombre de la empresa">
+      <div class="row">
+        <div class="col-md-3">
+          <label for="">Año desde:</label>
+          <input type="number" name="desde" [(ngModel)]="desde" required class="form-control" id="desde" placeholder="Desde">
+        </div>
+        <div class="col-md-3">
+          <label for="">Año hasta:</label>
+          <input type="number" name="hasta" [(ngModel)]="hasta" required class="form-control" id="hasta" placeholder="Hasta">
+        </div>
+      </div>
+    <label for="">Descripcion:</label>
+    <input type="text" name="descripcion" [(ngModel)]="descripcion" class="form-control" id="descripcion" placeholder="Ingresa una breve descipcion del puesto o tareas realizadas">
+    <button type="submit" class="btn btn-primary">Agregar experiencia</button>
+  </div>
+  <div class="form-group col-md-3"></div>
+</form>
+</div>
+
+
+<!-- EXPERIENCIAS LABORALES -->
+<ul class="experiencias">
+  <li *ngFor="let experiencia of experiencias">
+
+      <!-- EXPERIENCIAS LABORALES DE LA BASE DE DATOS -->
+      <b><h4>{{experiencia.empresa}}</h4></b>
+      <h6>({{experiencia.desde}} - {{experiencia.hasta}})</h6>
+      <h5>{{experiencia.descripcion}}</h5>
+
+      <!-- BOTON EDITAR EXPERIENCIA -->
+    <button class="btn btn-secondary" *ngIf= "userLogged | async as user"
+    routerLink="editexp/{{experiencia.id}}">
+      Editar</button>
+
+      <!-- BOTON BORRAR EXPERIENCIA -->
+    <button class="btn btn-danger" *ngIf= "userLogged | async as user"
+    (click)="delete(experiencia.id)" >
+      Borrar</button>
+
+  </li>
+</ul>
+
+</div>

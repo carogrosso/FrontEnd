@@ -1,0 +1,14 @@
+header{
+    background-color: #A2D2FF;
+    background-color: #5CA4A9;
+    background-color: #61A4BC;
+}
+
+
+
+@media (max-width:500px){
+    *{
+        flex-direction: column;
+    }
+}
+

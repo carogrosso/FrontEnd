@@ -1,0 +1,31 @@
+.boton{
+    float: right;
+    padding: 15px;
+    text-decoration: none;
+    background-color: #1A132F;
+    border-radius: 25px;
+    color: white;
+}
+
+.boton:hover{
+    background-color: #F7E2E2;
+    color:  black;
+}
+
+.usuario-activo{
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-danger{
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.botones{
+    margin-top: 30px;
+    float: right;
+}
+
+

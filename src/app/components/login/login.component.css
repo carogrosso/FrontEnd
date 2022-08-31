@@ -1,0 +1,21 @@
+#login{
+    width: 600px;
+    margin: auto;
+}
+
+.bienvenida, .usuarionuevo{
+    text-align: center;
+}
+.usuarionuevo{
+    padding-top: 30px;
+}
+
+.botones{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+button{
+    margin: 5px;
+}

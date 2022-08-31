@@ -1,0 +1,67 @@
+<div id="proyectos" class="row">
+    <h1>Proyectos realizados</h1>
+
+    <!-- BOTON AGREGAR PROYECTO -->
+<div class="add-pro" *ngIf= "userLogged|async as user">
+    <button
+    type="submit"
+    class="btn btn-primary"
+    [textContent]="showAddPro?'Cerrar':'Nuevo proyecto'"
+    (click)="toggleAddPro()">
+    </button>
+</div>
+
+
+<!-- FORM AGREGAR PROYECTO -->
+<div> 
+    <form *ngIf="showAddPro" (ngSubmit)="onCreate(f)" class="row" novalidate #f="ngForm" >
+        <div class="form-group col-md-3"></div>
+        <div class="form-group col-md-6">
+            <label for="">Titulo:</label>
+            <input type="text" name="titulo" [(ngModel)]="titulo" required class="form-control" id="" placeholder="Ingresa el nombre del proyecto">
+            <label for="">Link:</label>
+            <input type="link" name="link" [(ngModel)]="link" required class="form-control" id="" placeholder="Link del proyecto">
+            <label for="">Imagen:</label>
+            <input type="text" name="imagen" [(ngModel)]="imagen" required class="form-control" id="" placeholder="Ingresa ''../../../assets/img'' + NOMBRE FOTO">
+            <label for="">Descripcion:</label>
+            <input type="text" name="descripcion" [(ngModel)]="descripcion" required class="form-control" id="" placeholder="Ingresa una breve descipcion del proyecto y tecnologias aplicadas">
+            <button type="submit" class="btn btn-primary">Agregar proyecto</button>
+        </div>
+        <div class="form-group col-md-3"></div>
+    </form>
+</div>
+
+<!-- PROYECTOS DE LA BASE DE DATOS -->
+
+
+<div class="proyectos row">
+
+        <div class="card w-30 col-md-8" *ngFor="let proyecto of proyectos">
+        <div class="card-body">
+            <img src="../../../assets/img/{{proyecto.imagen}}" class="card-img-top" alt="">
+            <h5 class="card-title">{{proyecto.titulo}} </h5>
+            <p class="card-text">{{proyecto.descripcion}}</p>
+            <a href="{{proyecto.link}}" target="_blank" class="btn btn-primary">Ver proyecto</a>
+
+            <!-- BOTON BORRAR PROYECTO -->
+            <button class="btn btn-danger" *ngIf= "userLogged|async as user"
+            (click)="delete(proyecto.id)">Borrar</button>
+        </div>
+        </div>
+
+
+</div>
+</div>
+
+<!-- 
+<div class="proyectos row">
+
+    <div class="" *ngFor="let proyecto of proyectos">
+        <a href="{{proyecto.link}}">
+            <img class="fotoproyecto" src="../../../assets/img/{{proyecto.imagen}}" alt="">
+            <h5>{{proyecto.titulo}}</h5>
+            <p>{{proyecto.descripcion}}</p>
+        </a>
+    </div>
+
+</div> -->

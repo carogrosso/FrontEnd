@@ -1,0 +1,63 @@
+<div id="estudios" class="row">
+  <h1>Educación</h1>
+    
+<!-- BOTON AGREGAR ESTUDIO -->
+<div class="add-est" *ngIf= "userLogged|async as user">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [textContent]="showAddEst?'Cerrar':'Nuevo estudio'"
+    (click)="toggleAddEst()">
+  </button>
+</div>
+
+<!-- FORM AGREGAR ESTUDIO -->
+<div>
+<form *ngIf="showAddEst" (ngSubmit)="onCreate(f)" class="row" novalidate #f="ngForm" >
+  <div class="form-group col-md-3"></div>
+  <div class="form-group col-md-6">
+    <label for="">Titulo:</label>
+    <input type="text" name="titulo" [(ngModel)]="titulo" class="form-control" id="" placeholder="Ingresa el titulo obtenido">
+      <div class="row">
+
+        <div class="col-md-4">
+          <label for="">Año egreso:</label>
+          <input type="number" name="anoEgreso" [(ngModel)]="anoEgreso" class="form-control" id="" placeholder="Año de egreso">
+        </div>
+
+        <div class="col-md-8">
+          <label for="">Institucion:</label>
+          <input type="text" name="institucion" [(ngModel)]="institucion" class="form-control" id="" placeholder="Ingresa el nombre de la institucion">
+      
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Agregar estudio</button>
+  </div>
+</form>
+</div>
+
+
+<!-- ESTUDIOS CURSADOS -->
+<ul class="educacion">
+  <li *ngFor="let estudio of estudios">
+
+<!-- ESTUDIOS CURSADOS DE LA BASE DE DATOS-->
+      <b><h4>{{estudio.titulo}}</h4></b>
+      <h6><!--Estudio {{estudio.nivel}} - {{estudio.estado}} - -->({{estudio.anoEgreso}})</h6>
+      <h5>Institucion: {{estudio.institucion}}</h5>
+
+      <!-- BOTON EDITAR ESTUDIO -->
+    <button class="btn btn-secondary" *ngIf= "userLogged|async as user"
+    routerLink="/editestu/{{estudio.id}}">
+      Editar</button>
+
+      <!-- BOTON BORRAR ESTUDIO -->
+    <button class="btn btn-danger" *ngIf= "userLogged|async as user"
+    (click)="delete(estudio.id)">
+      Borrar</button>
+
+  </li>
+</ul>
+
+</div>

@@ -1,0 +1,32 @@
+<div id="login">
+    <form class="m-5" #formlogin="ngForm">
+    <h1>Mi Portfolio</h1>
+    <p class="bienvenida">Bienvenidx! Me llamo Carolina y después de mucho trabajo pude crear esta aplicacion
+        donde vas a poder crear tu portfolio de manera facil y gratuita. Espero que te guste y 
+    me encantaría recibir tus comentarios y sugerencias para seguir mejorando. <a href="http://mailto:grossocrln@gmail.com">Contactame acá.</a></p>
+    <div class="mb-3">
+        <label for="mail" class="form-label">Mail o usuario</label>
+        <input [(ngModel)]= "usuario.mail" type="email" name="mail" class="form-control" placeholder="Ingresa tu mail" aria-describedby="emailHelp">
+        </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input [(ngModel)]= "usuario.password" type="password" name="password" class= "form-control" placeholder="Ingresa tu contraseña" >
+    </div>
+    <div class="botones">
+        <button type="submit" class="btn btn-primary" [disabled]="!formlogin.valid" (click)="Ingresar()">{{ isLogged? 'Iniciar Sesión': 'Registrarme' }}</button>
+        <button  class="submit" (click)="onSwitch ()" type="button">Cambiar a {{isLogged? 'Registrarme': 'Iniciar Sesión'}}</button>
+        <br>
+        <button type="submit" class="btn btn-danger" (click)="IngresarConGoogle()">Ingresar con Google</button>
+        <br>
+
+        <br>
+        
+        <!-- <button type="submit" class="btn btn-danger" (click)="ObtenerUsuarioLogeado()">Usuario Logeado</button> -->
+    </div>
+        <p class="usuarionuevo">Todavia no tenes una cuenta? <a href="" routerLink="/altausuario">Registrate acá.</a></p>
+        <!-- <p *ngIf= "userLogged|async as user">Ya estas logueado como: <a class="" id="" href="" *ngIf= "userLogged|async as user" > {{user.email}} </a></p> -->
+
+        
+    </form>
+    
+</div>
