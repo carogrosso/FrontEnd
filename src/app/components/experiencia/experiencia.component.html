@@ -5,8 +5,8 @@
 <div class="add-exp" *ngIf= "userLogged | async as user">
   <button
     type="submit"
-    class="btn btn-primary"
-    [textContent]="showAddExp?'Cerrar':'Nueva experiencia'"
+    class="btn btn-primary btn-primary-edit"
+    [textContent]="showAddExp?'Cerrar':'Agregar nueva experiencia'"
     (click)="toggleAddExp()">
   </button>
 </div>
@@ -43,18 +43,18 @@
 
       <!-- EXPERIENCIAS LABORALES DE LA BASE DE DATOS -->
       <b><h4>{{experiencia.empresa}}</h4></b>
-      <h6>({{experiencia.desde}} - {{experiencia.hasta}})</h6>
+      <h6>{{experiencia.desde}} - {{experiencia.hasta}}</h6>
       <h5>{{experiencia.descripcion}}</h5>
 
       <!-- BOTON EDITAR EXPERIENCIA -->
     <button class="btn btn-secondary" *ngIf= "userLogged | async as user"
     routerLink="editexp/{{experiencia.id}}">
-      Editar</button>
+    <img class="logosbtn" src="../../../assets/img/editar.png" alt=""></button>
 
       <!-- BOTON BORRAR EXPERIENCIA -->
     <button class="btn btn-danger" *ngIf= "userLogged | async as user"
     (click)="delete(experiencia.id)" >
-      Borrar</button>
+      <img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
 
   </li>
 </ul>

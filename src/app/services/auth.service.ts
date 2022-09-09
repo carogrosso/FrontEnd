@@ -13,7 +13,7 @@ export class AuthService {
     try{
       return await this.afauth.createUserWithEmailAndPassword(email,password);
     } catch (err) {
-      console.log("Error al iniciar sesion: ",err);
+      console.log("Error al crear el usuario: ",err);
       return null;
     }
   }
@@ -22,7 +22,8 @@ export class AuthService {
     try{
       return await this.afauth.signInWithEmailAndPassword(email,password);
     } catch (err) {
-      console.log("Error al iniciar sesion: ",err);
+      // console.log("Error al iniciar sesion: ",err);
+      alert(err);
       return null;
     }
   }

@@ -1,0 +1,17 @@
+#altausuario{
+    width: 600px;
+    margin: auto;
+}
+
+.bienvenida, .tengousuario{
+    text-align: center;
+}
+.tengousuario{
+    padding-top: 30px;
+}
+
+.botones{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

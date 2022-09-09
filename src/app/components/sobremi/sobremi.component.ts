@@ -10,8 +10,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class SobremiComponent implements OnInit {
   persona: Persona = new Persona("","","","","")
-  // userLogged=this.authService.getUserLogged();
-  userLogged=false;
+  userLogged=this.authService.getUserLogged();
 
   constructor(
     public personaService: PersonaService,

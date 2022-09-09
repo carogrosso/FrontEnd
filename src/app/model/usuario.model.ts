@@ -2,13 +2,13 @@ export class Usuario{
     id?: number;
     nombre: String;
     apellido: String;
-    mail: String;
+    email: String;
     password: String;
 
-    constructor (nombre: string, apellido: string, mail: string, password: string){
+    constructor (nombre: string, apellido: string, email: string, password: string){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.mail = mail;
+        this.email = email;
         this.password = password;
     }
 }

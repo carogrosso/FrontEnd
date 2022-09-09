@@ -1,1 +1,31 @@
-<p>altausuario works!</p>
+<div id="altausuario">
+  <form class="m-5" #formAlta="ngForm">
+  <h1>Crea tu cuenta</h1>
+  <p class="bienvenida">Ingresa tus datos para crear un usuario y empezar a trabajar en tu portfolio.</p>
+<!--  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+        [(ngModel)]= "usuario.nombre" 
+        <input type="text" name="nombre" class= "form-control" placeholder="Ingresa tu nombre" >
+</div>
+<div class="mb-3">
+  <label for="apellido" class="form-label">Apellido</label>
+  <input type="text" name="apellido" class= "form-control" placeholder="Ingresa tu apellido" >
+</div> -->
+  <div class="mb-3">
+    <label for="email" class="form-label">Mail o usuario</label>
+    <input [(ngModel)]= "usuario.email" type="email" name="email" class="form-control" placeholder="Ingresa tu mail" aria-describedby="emailHelp">
+      </div>
+  <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input [(ngModel)]= "usuario.password" type="password" name="password" class= "form-control" placeholder="Ingresa tu contraseña" >
+  </div>
+  <div class="botones">
+    <button type="submit" class="btn btn-primary" [disabled]="!formAlta.valid" (click)="altaUsuario()">Registrarme</button>
+  </div>
+      <!-- <button type="submit" class="btn btn-primary" [disabled]="!formlogin.valid" (click)="Ingresar()">{{ isLogged? 'Iniciar Sesión': 'Registrarme' }}</button>
+      <button  class="submit" (click)="onSwitch ()" type="button">Cambiar a {{isLogged? 'Registrarme': 'Iniciar Sesión'}}</button>
+      <br>-->
+  <p class="tengousuario">Ya tenes cuenta? <a href="" routerLink="/login">Inicia sesion acá.</a></p>
+  
+  </form>
+</div>

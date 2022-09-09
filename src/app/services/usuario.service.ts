@@ -17,9 +17,13 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
+  // public save(usuario:Usuario): Observable<Usuario>{
+  //   return this.http.post<Usuario>(this.url+'/crear',usuario);
+  // }
+
   public login(usuario:Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(this.url+'/login',usuario);
-    let maildelusuario:String= usuario.mail; 
+    let maildelusuario:String= usuario.email; 
   }
 
   public getUsuario(): Observable<Usuario[]>{

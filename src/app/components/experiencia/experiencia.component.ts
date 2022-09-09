@@ -3,9 +3,7 @@ import { Experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-experiencia',
@@ -27,9 +25,7 @@ export class ExperienciaComponent implements OnInit {
   constructor(
     private experienciaService: ExperienciaService,
     private authService:AuthService,
-    private router:Router,
-    private activatedRouter: ActivatedRoute,
-    private usuarioService: UsuarioService
+    private router:Router
   ) { 
     this.subscription = this.experienciaService.onToggleNew().subscribe(value =>
       this.showAddExp = value);

@@ -1,6 +1,8 @@
-<div *ngIf="perso"> 
-    <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" >
-
+<div class="formulario" *ngIf="perso"> 
+    <form (ngSubmit)="onUpdate()" class="row" novalidate #f="ngForm" >
+        <h1>Editar datos de la persona</h1>
+        <div class="form-group col-md-3"></div>
+        <div class="form-group col-md-6">
     <label for="">Nombre:</label>
     <input type="text" name="nombre" [(ngModel)]="perso.nombre" required class="form-control" id="" placeholder="">
 
@@ -13,8 +15,12 @@
     <label for="">Descripcion:</label>
     <input type="text" name="descripcion" [(ngModel)]="perso.descripcion" required class="form-control" id="" placeholder="">
         
+    <label for="">Imagen:</label>
+    <input type="text" name="imagen" [(ngModel)]="perso.img" required class="form-control" id="" placeholder="">
+
+        
     <button type="submit" class="btn btn-primary">Editar persona</button>
-
-
+</div>
+<div class="form-group col-md-3"></div>
     </form>
     </div>

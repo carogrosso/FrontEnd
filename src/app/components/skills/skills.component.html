@@ -5,7 +5,7 @@
 <div class="add-skill" *ngIf= "userLogged|async as user">
   <button
     type="submit"
-    class="btn btn-primary"
+    class="btn btn-primary btn-primary-edit"
     [textContent]="showAddSkill?'Cerrar':'Nueva skill'"
     (click)="toggleAddSkill()">
   </button>
@@ -34,6 +34,7 @@
 
 <div class="skills">
   <div *ngFor="let skill of skills">
+    <div class="skill">
     <circle-progress
     [percent]=skill.porcentaje
     title={{skill.skill}}
@@ -43,7 +44,8 @@
     <!-- BOTON BORRAR SKILL -->
     <button class="btn btn-danger" *ngIf= "userLogged|async as user"
     (click)="delete(skill.id)">
-      Borrar</button>
+    <img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
+    </div>
     </div>
 </div>
 

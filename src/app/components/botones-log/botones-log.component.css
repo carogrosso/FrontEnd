@@ -7,9 +7,17 @@
     color: white;
 }
 
+.btn{
+    margin-right: 20px;
+}
+
 .boton:hover{
-    background-color: #F7E2E2;
+    background-color: #f4f4f4de;
     color:  black;
+    border: #555 solid 1px;
+    font-style: bold;
+    box-shadow: 3px 3px #666;
+    transition: all 200ms ease-in;
 }
 
 .usuario-activo{

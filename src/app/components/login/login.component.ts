@@ -12,19 +12,12 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  // mailDeUsuario= this.usuarioService.getUsuarioMail();
-  // usuarioAdmin: Usuario = new Usuario ("","","grossoc@admin.com","administrador");
-  // usuario: Usuario = new Usuario("","","","");
-  // userLogged=false;
-
-  // userLogged=this.usuarioService.login(this.usuario);
-
 // ESTO NECESITO PARA LOG CON FIREBASE
 
 isLogged:boolean=true
 userLogged=this.authService.getUserLogged();
 usuario = {
-    mail: '',
+    email: '',
     password: ''
 }
 // ESTO NECESITO PARA LOG CON FIREBASE
@@ -37,9 +30,6 @@ usuario = {
   ngOnInit(): void {
   }
 
-  // getUserLogged(){
-  //   return this.usuarioService.login(this.usuario);
-  // }
 
   // ingresar(){
   //   // this.usuario.mail = formlogin.value.mail;
@@ -48,7 +38,6 @@ usuario = {
   //   console.log(this.usuario.password);
   //   // console.log(this.usuarioService);
   //   // console.log(this.getUserLogged());
-
   //   // if (this.usuarioService.getUsuarioMail() == this.usuario.mail){
   //   //   console.log(this.usuarioService.getUsuarioMail());
   //   //   console.log("el usuario es el mismo"+ this.usuarioService.getUsuarioMail())
@@ -60,7 +49,6 @@ usuario = {
   //       {console.log(data);
   //       });
   //   }
-
   //   console.log(this.getUserLogged());
   //   this.usuarioService.login(this.usuario).subscribe(data => 
   //     { console.log(data);
@@ -80,35 +68,32 @@ onSwitch(){
   this.isLogged=!this.isLogged;
 }
 
-  Ingresar(){
-    const { mail,password } =this.usuario
+  ingresar(){
+    const { email,password } =this.usuario
     if (this.isLogged){
-      this.authService.login(mail,password).then(res=>{
-        console.log("Ingresaste ", res);
-        this.router.navigateByUrl('');
-      })
+      this.authService.login(email,password);
+      // this.router.navigateByUrl('');
     } else {
-this.authService.register(mail,password).then(res=>{
-      console.log("Se registro el usuario correctamente: ", res);
-    })
+    //   console.log("El usuario no existe. Registralo");
+    // this.authService.register(email,password).then(res=>{
+    //   console.log("Se registro el usuario correctamente: ", res);
+    // })
     }
-    // console.log(this.usuario);
-    // this.router.navigateByUrl('');
   }
 
-  IngresarConGoogle(){
-    const { mail,password } =this.usuario
-    this.authService.loginWithGoogle(mail,password).then(res=>{
+  ingresarConGoogle(){
+    const { email,password } = this.usuario
+    this.authService.loginWithGoogle(email,password).then(res=>{
       console.log("Se registro el usuario correctamente: ", res);
     })
     this.router.navigateByUrl('');
   }
 
-  ObtenerUsuarioLogeado(){
-    this.authService.getUserLogged().subscribe(res=>{
-      console.log(res?.email);
-    })
-  }
+  // ObtenerUsuarioLogeado(){
+  //   this.authService.getUserLogged().subscribe(res=>{
+  //     console.log(res?.email);
+  //   })
+  // }
 
   logOut(){
     this.authService.logOut()

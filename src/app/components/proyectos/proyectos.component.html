@@ -5,7 +5,7 @@
 <div class="add-pro" *ngIf= "userLogged|async as user">
     <button
     type="submit"
-    class="btn btn-primary"
+    class="btn btn-primary btn-primary-edit"
     [textContent]="showAddPro?'Cerrar':'Nuevo proyecto'"
     (click)="toggleAddPro()">
     </button>
@@ -45,7 +45,7 @@
 
             <!-- BOTON BORRAR PROYECTO -->
             <button class="btn btn-danger" *ngIf= "userLogged|async as user"
-            (click)="delete(proyecto.id)">Borrar</button>
+            (click)="delete(proyecto.id)"><img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
         </div>
         </div>
 

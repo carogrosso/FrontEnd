@@ -2,11 +2,13 @@ header{
     background-color: #A2D2FF;
     background-color: #5CA4A9;
     background-color: #61A4BC;
+    background-color: #F8BBD0;
+    background-color: #8BC34A;
 }
 
 
 
-@media (max-width:500px){
+@media (max-width:700px){
     *{
         flex-direction: column;
     }

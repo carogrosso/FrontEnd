@@ -1,21 +1,35 @@
 *{
-    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    color: #111;
 }
 
 h1{
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Alegreya', serif;
     margin-bottom: 20px;
-    font-size: 70px;
-    text-shadow: 3px 3px #777;
+    font-size: 60px;
+    text-shadow: 3px 3px #555;
     text-align: center;
-    color: #ff5c26;    color: #ED6A5A;    color: #EE4266;
+    color: #ED6A5A; color: #ee6986; color: #ff5c26; color:#689F38;
 }
 
-.btn-primary:hover{
-    background-color: #FEE440;
+.btn-primary-edit{
+    border-radius: 50px;
+}
+
+.btn-primary-edit:hover{
+    background-color: #CDDC39;
     color: #333;
     border: #555 solid 1px;
     font-style: bold;
     box-shadow: 3px 3px #666;
     transition: all 200ms ease-in;
+}
+
+
+.logosbtn{
+    width: 20px;
 }

@@ -5,7 +5,7 @@
 <div class="add-est" *ngIf= "userLogged|async as user">
   <button
     type="submit"
-    class="btn btn-primary"
+    class="btn btn-primary btn-primary-edit"
     [textContent]="showAddEst?'Cerrar':'Nuevo estudio'"
     (click)="toggleAddEst()">
   </button>
@@ -44,18 +44,18 @@
 
 <!-- ESTUDIOS CURSADOS DE LA BASE DE DATOS-->
       <b><h4>{{estudio.titulo}}</h4></b>
-      <h6><!--Estudio {{estudio.nivel}} - {{estudio.estado}} - -->({{estudio.anoEgreso}})</h6>
-      <h5>Institucion: {{estudio.institucion}}</h5>
+      <h6><!--Estudio {{estudio.nivel}} - {{estudio.estado}} - -->Finalizado en {{estudio.anoEgreso}}</h6>
+      <h5>{{estudio.institucion}}</h5>
 
       <!-- BOTON EDITAR ESTUDIO -->
     <button class="btn btn-secondary" *ngIf= "userLogged|async as user"
     routerLink="/editestu/{{estudio.id}}">
-      Editar</button>
+    <img class="logosbtn" src="../../../assets/img/editar.png" alt=""></button>
 
       <!-- BOTON BORRAR ESTUDIO -->
     <button class="btn btn-danger" *ngIf= "userLogged|async as user"
     (click)="delete(estudio.id)">
-      Borrar</button>
+    <img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
 
   </li>
 </ul>
