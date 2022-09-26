@@ -3,7 +3,8 @@ import { Estudio } from 'src/app/model/estudio.model';
 import { EstudioService } from 'src/app/services/estudio.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-estudios',
@@ -18,13 +19,12 @@ export class EstudiosComponent implements OnInit {
   subscription?: Subscription;
   titulo: string = null;
   institucion: string = null;
-  anoEgreso: number = 0;
+  anoEgreso: number = null;
   
   constructor(
     private estudioService: EstudioService,
     private authService:AuthService,
-    private router:Router,
-    private activatedRouter: ActivatedRoute
+    private router:Router
   ) { 
     this.subscription = this.estudioService.onToggle().subscribe(value =>
       this.showAddEst = value);
@@ -36,35 +36,60 @@ export class EstudiosComponent implements OnInit {
     });
     }
   
-    onCreate(f:any): void {
-      const est = new Estudio(this.titulo, this.institucion, this.anoEgreso);
-      this.estudioService.save(est).subscribe(
+  onCreate(f:any): void {
+    const est = new Estudio(this.titulo, this.institucion, this.anoEgreso);
+    this.estudioService.save(est).subscribe(
+      data => {
+        this.ngOnInit();
+        this.toggleAddEst();
+        Swal.fire({
+          title: 'Listo!',
+          text: 'Estudio agregado',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.router.navigate(['']);
+        f.reset();
+      }, err => {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo agregar el estudio. Todos los campos son obligatorios',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 2000
+        })
+      }
+    )
+  }
+  
+  delete(id?: number){
+    if(id != undefined){
+      this.estudioService.delete(id).subscribe(
         data => {
           this.ngOnInit();
-          this.toggleAddEst();
-          alert("Estudio añadido");
-          this.router.navigate(['']);
-          f.reset();
+          Swal.fire({
+            title: 'Listo!',
+            text: 'Estudio eliminado',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }, err => {
-          alert("No se pudo agregar el estudio");
+          Swal.fire({
+            title: 'Error',
+            text: 'No se pudo borrar',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }
       )
     }
-  
-    delete(id?: number){
-      if(id != undefined){
-        this.estudioService.delete(id).subscribe(
-          data => {
-            this.ngOnInit();
-          }, err => {
-            alert("No se pudo borrar el estudio");
-          }
-        )
-      }
-    }
-  
-    toggleAddEst() {
-      this.estudioService.toggleAddEst();;
-    }
+  }
+
+  toggleAddEst() {
+    this.estudioService.toggleAddEst();;
+  }
 
 }

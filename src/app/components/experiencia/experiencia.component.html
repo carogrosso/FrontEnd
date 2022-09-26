@@ -13,23 +13,23 @@
 
 <!-- FORM AGREGAR EXPERIENCIA [ngModelOptions]="{standalone: true}" -->
 <div> 
-<form id="formExperiencia" *ngIf="showAddExp" (ngSubmit)="onCreate(f)" class="row" novalidate #f="ngForm" >
+<form id="formExperiencia" *ngIf="showAddExp" (ngSubmit)="onCreate(f)" class="row" #f="ngForm" >
   <div class="form-group col-md-3"></div>
   <div class="form-group col-md-6">
     <label for="">Empresa:</label>
-    <input type="text" name="empresa" [(ngModel)]="empresa" required class="form-control" id="empresa" placeholder="Ingresa el nombre de la empresa">
+    <input type="text" name="empresa" [(ngModel)]="empresa" class="form-control" id="empresa" placeholder="Ingresa el nombre de la empresa" required>
       <div class="row">
         <div class="col-md-3">
-          <label for="">Año desde:</label>
-          <input type="number" name="desde" [(ngModel)]="desde" required class="form-control" id="desde" placeholder="Desde">
+          <label for="desde">Año desde:</label>
+          <input type="number" name="desde" [(ngModel)]="desde" class="form-control" id="desde" placeholder="Desde" required="true">
         </div>
         <div class="col-md-3">
-          <label for="">Año hasta:</label>
-          <input type="number" name="hasta" [(ngModel)]="hasta" required class="form-control" id="hasta" placeholder="Hasta">
+          <label for="hasta">Año hasta:</label>
+          <input type="number" name="hasta" [(ngModel)]="hasta" class="form-control" id="hasta" placeholder="Hasta" required="true">
         </div>
       </div>
     <label for="">Descripcion:</label>
-    <input type="text" name="descripcion" [(ngModel)]="descripcion" class="form-control" id="descripcion" placeholder="Ingresa una breve descipcion del puesto o tareas realizadas">
+    <input type="text" name="descripcion" [(ngModel)]="descripcion" class="form-control" id="descripcion" placeholder="Ingresa una breve descipcion del puesto o tareas realizadas" required>
     <button type="submit" class="btn btn-primary">Agregar experiencia</button>
   </div>
   <div class="form-group col-md-3"></div>

@@ -29,7 +29,6 @@ export class ExperienciaService {
     return this.http.put<any>(this.url + `/update/${id}`, experiencia);
   }
 
-
   toggleAddExp(): void {
     this.showAddExp = !this.showAddExp;
     this.subject.next(this.showAddExp);
@@ -38,5 +37,5 @@ export class ExperienciaService {
   onToggleNew():Observable<any> {
     return this.subject.asObservable();
   }
-
+  
 }

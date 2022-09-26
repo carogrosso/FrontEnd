@@ -1,5 +1,5 @@
 #skills{
-    background-color: #DCEDC8;
+    background-color: #F5F5F5;
     padding: 30px 30px;
     height: auto;
 }
@@ -24,26 +24,27 @@ label, button {
     margin-top: 0px;
 }
 
-
+.skills{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* <!-- SKILLS --> */
 
 
-.skills{
-    /* margin-left: auto;
+/*.skills{
+    margin-left: auto;
     margin-right: auto;
     
-    margin-top: 30px; */
-    text-align: center;
-    display: grid;
-    place-items: center;
+    margin-top: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
     /* justify-content: center;
     align-items: center; */
-    /* width: 80%; */
-}
+    /* width: 80%; 
+}*/
 
-.skill{
-    justify-content: space-between;
-}
 
 /* 
 @media (max-width: 768px){

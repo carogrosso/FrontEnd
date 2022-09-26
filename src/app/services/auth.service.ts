@@ -1,19 +1,28 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app'
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afauth: AngularFireAuth) { }
+  constructor(private afauth: AngularFireAuth,
+    private router: Router) { }
 
   async register(email:string,password:string){
     try{
       return await this.afauth.createUserWithEmailAndPassword(email,password);
     } catch (err) {
-      console.log("Error al crear el usuario: ",err);
+        Swal.fire({
+        title: 'Error!',
+        text: ''+(err),
+        icon: 'error',
+        showConfirmButton: false,
+      });
+      this.router.navigateByUrl('altausuario');
       return null;
     }
   }
@@ -22,8 +31,13 @@ export class AuthService {
     try{
       return await this.afauth.signInWithEmailAndPassword(email,password);
     } catch (err) {
-      // console.log("Error al iniciar sesion: ",err);
-      alert(err);
+      Swal.fire({
+      title: 'Error!',
+      text: ''+(err),
+      icon: 'error',
+      showConfirmButton: false,
+    });
+    this.router.navigateByUrl('login');
       return null;
     }
   }

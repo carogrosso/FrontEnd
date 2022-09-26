@@ -4,6 +4,7 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia',
@@ -13,13 +14,12 @@ import { Router } from '@angular/router';
 export class ExperienciaComponent implements OnInit {
   experiencias: Experiencia[] = []
   
-  // userLogged=this.usuarioService.getUserLogged();
   userLogged=this.authService.getUserLogged();
   showAddExp: boolean=false;
   subscription?: Subscription;
   empresa: string = null;
-  desde: number = 0;
-  hasta: number = 0;
+  desde: number = null;
+  hasta: number = null;
   descripcion: string = null;
 
   constructor(
@@ -35,32 +35,55 @@ export class ExperienciaComponent implements OnInit {
   this.experienciaService.getExperiencia().subscribe(data=>{
     this.experiencias = data;
   });
-  // this.userLogged=this.usuarioService.login(this.usuarioService.);
-  // console.log(this.userLogged);
   }
 
-    onCreate(f:any): void {
-      const expe = new Experiencia(this.empresa, this.desde, this.hasta, this.descripcion);
-      this.experienciaService.save(expe).subscribe(
-        data => {
-          this.ngOnInit();
-          this.toggleAddExp();
-          alert("Experiencia añadida");
-          this.router.navigate(['']);
-          f.reset();
-        }, err => {
-          alert("No se pudo agregar la experiencia. Todos los campos son obligatorios");
-        }
-      )
-    }
+  onCreate(f:any): void {
+    const expe = new Experiencia(this.empresa, this.desde, this.hasta, this.descripcion);
+    this.experienciaService.save(expe).subscribe(
+      data => {
+        this.ngOnInit();
+        this.toggleAddExp();
+        Swal.fire({
+          title: 'Listo!',
+          text: 'Experiencia agregada',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.router.navigate(['']);
+        f.reset();
+      }, err => {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo agregar la experiencia. Todos los campos son obligatorios',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 2000
+        });
+      }
+    )
+  }
 
   delete(id?: number){
     if(id != undefined){
       this.experienciaService.delete(id).subscribe(
         data => {
           this.ngOnInit();
+          Swal.fire({
+            title: 'Listo!',
+            text: 'Experiencia eliminada',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }, err => {
-          alert("No se pudo borrar la experiencia");
+          Swal.fire({
+            title: 'Error',
+            text: 'No se pudo borrar',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }
       )
     }

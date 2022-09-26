@@ -32,4 +32,5 @@ export class ProyectoService {
   onToggle():Observable<any> {
     return this.subject.asObservable();
   }
+  
 }

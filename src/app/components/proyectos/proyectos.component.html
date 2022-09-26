@@ -6,7 +6,7 @@
     <button
     type="submit"
     class="btn btn-primary btn-primary-edit"
-    [textContent]="showAddPro?'Cerrar':'Nuevo proyecto'"
+    [textContent]="showAddPro?'Cerrar':'Agregar nuevo proyecto'"
     (click)="toggleAddPro()">
     </button>
 </div>
@@ -22,7 +22,7 @@
             <label for="">Link:</label>
             <input type="link" name="link" [(ngModel)]="link" required class="form-control" id="" placeholder="Link del proyecto">
             <label for="">Imagen:</label>
-            <input type="text" name="imagen" [(ngModel)]="imagen" required class="form-control" id="" placeholder="Ingresa ''../../../assets/img'' + NOMBRE FOTO">
+            <input type="text" name="imagen" [(ngModel)]="imagen" required class="form-control" id="" placeholder="Nombre foto">
             <label for="">Descripcion:</label>
             <input type="text" name="descripcion" [(ngModel)]="descripcion" required class="form-control" id="" placeholder="Ingresa una breve descipcion del proyecto y tecnologias aplicadas">
             <button type="submit" class="btn btn-primary">Agregar proyecto</button>
@@ -36,32 +36,34 @@
 
 <div class="proyectos row">
 
-        <div class="card w-30 col-md-8" *ngFor="let proyecto of proyectos">
+        <div class="proyecto col-md-8" *ngFor="let proyecto of proyectos">
         <div class="card-body">
             <img src="../../../assets/img/{{proyecto.imagen}}" class="card-img-top" alt="">
             <h5 class="card-title">{{proyecto.titulo}} </h5>
             <p class="card-text">{{proyecto.descripcion}}</p>
             <a href="{{proyecto.link}}" target="_blank" class="btn btn-primary">Ver proyecto</a>
-
+            
             <!-- BOTON BORRAR PROYECTO -->
-            <button class="btn btn-danger" *ngIf= "userLogged|async as user"
+        <button class="btn btn-danger" *ngIf= "userLogged|async as user"
             (click)="delete(proyecto.id)"><img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
         </div>
         </div>
 
-
-</div>
 </div>
 
-<!-- 
-<div class="proyectos row">
 
-    <div class="" *ngFor="let proyecto of proyectos">
+<!-- <div class="proyectos row">
+
+    <div class="proyecto" *ngFor="let proyecto of proyectos">
         <a href="{{proyecto.link}}">
-            <img class="fotoproyecto" src="../../../assets/img/{{proyecto.imagen}}" alt="">
+            <img class="fotoproyecto" src="../../../assets/img/{{proyecto.imagen}}" alt=""></a>
             <h5>{{proyecto.titulo}}</h5>
             <p>{{proyecto.descripcion}}</p>
-        </a>
+        
+        <button class="btn btn-danger" *ngIf= "userLogged|async as user"
+            (click)="delete(proyecto.id)"><img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
     </div>
 
 </div> -->
+
+</div>

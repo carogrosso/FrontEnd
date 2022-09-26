@@ -1,13 +1,5 @@
 <div class="contenedor">
   <div class="row sobremi">
-    <!-- <div>
-      <div class="presentacion">
-      <h1>{{persona.nombre}} {{persona.apellido}}</h1>
-      <h3>{{persona.titulo}} </h3>
-    </div>
-      </div> -->
-
-      <!-- <button routerLink="editperso/{{persona.id}}" class="btn btn-primary" *ngIf="userLogged|async as user">Editar perfil</button> -->
     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 texto-sobremi">
       <div><h1>{{persona.nombre}} {{persona.apellido}}</h1>
       <h3>{{persona.titulo}} </h3>
@@ -18,17 +10,3 @@
       <button routerLink="editperso/{{persona.id}}" class="btn btn-primary btn-primary-edit" *ngIf="userLogged|async as user">Editar perfil</button>
     </div>
 </div>
-
-<!--<div class="contenedor">
-  <div class="row texto-sobremi" >
-<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-      <div><h1>Sobre mi</h1>
-      <p>{{persona.descripcion}}</p></div>
-    </div>
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 imgbtn">
-      <img class="yo img-fluid" src="../../../assets/img/{{persona.img}}" alt="">
-             <button routerLink="editperso/{{persona.id}}" class="btn btn-primary" *ngIf="userLogged|async as user">Editar perfil</button> 
-
-    </div>
-  </div>
-</div>-->

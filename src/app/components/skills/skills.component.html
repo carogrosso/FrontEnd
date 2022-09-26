@@ -6,7 +6,7 @@
   <button
     type="submit"
     class="btn btn-primary btn-primary-edit"
-    [textContent]="showAddSkill?'Cerrar':'Nueva skill'"
+    [textContent]="showAddSkill?'Cerrar':'Agregar nueva skill'"
     (click)="toggleAddSkill()">
   </button>
 </div>
@@ -23,6 +23,10 @@
             <label for="">Porcentaje:</label>
             <input type="number" name="porcentaje" [(ngModel)]="porcentaje" required class="form-control" id="">
           </div>
+          <div class="col-md-3">
+            <label for="">Color:</label>
+            <input type="color" name="porcentaje" [(ngModel)]="color" required class="form-control" id="color">
+          </div>
         </div>
       <button type="submit" class="btn btn-primary">Agregar skill</button>
     </div>
@@ -32,9 +36,9 @@
 
 <!-- SKILLS DE LA BASE DE DATOS -->
 
-<div class="skills">
-  <div *ngFor="let skill of skills">
-    <div class="skill">
+<div class="skills row">
+  <div class="skill col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let skill of skills">
+
     <circle-progress
     [percent]=skill.porcentaje
     title={{skill.skill}}
@@ -45,8 +49,9 @@
     <button class="btn btn-danger" *ngIf= "userLogged|async as user"
     (click)="delete(skill.id)">
     <img class="logosbtn" src="../../../assets/img/borrar.png" alt=""></button>
-    </div>
-    </div>
+
+  </div>
+
 </div>
 
 </div>

@@ -38,5 +38,4 @@ export class EstudioService {
     return this.subject.asObservable();
   }
 
-
 }

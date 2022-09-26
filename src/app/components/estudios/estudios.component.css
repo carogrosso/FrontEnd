@@ -1,7 +1,5 @@
 #estudios{
-    background-color: #f4f4f4;
-    /* background-color: #E6EBE0;
-    background-color: #FEF9EF; */
+    background-color: #F5F5F5;
     padding: 30px 30px;
     height: auto;
 }
@@ -40,9 +38,6 @@ ul{
 li{
     padding-bottom: 30px;
 }
-/* ul button{
-    float: right;
-} */
 .btn-secondary{
     margin-right: 5px;
 }

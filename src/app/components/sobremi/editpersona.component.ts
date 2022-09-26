@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editpersona',
@@ -20,7 +21,6 @@ export class EditpersonaComponent implements OnInit {
     this.personaService.detail(id).subscribe(
       data => {
         this.perso = data;
-        alert(this.perso);
       }, err =>{
         alert("Error al mostrar la persona");
         this.router.navigate(['']);
@@ -33,9 +33,21 @@ export class EditpersonaComponent implements OnInit {
     this.personaService.update(id, this.perso).subscribe(
       data => {
         this.router.navigate(['']);
+        Swal.fire({
+          title: 'Listo!',
+          text: 'La persona fue modificada',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000
+        })
         // this.ngOnInit();
       }, err =>{
-        alert("Error al modificar la persona");
+        Swal.fire({
+          title: 'Error!',
+          text: 'Do you want to continue',
+          icon: 'error',
+          confirmButtonText: 'Cool'
+        })
         this.router.navigate(['']);
       }
     )

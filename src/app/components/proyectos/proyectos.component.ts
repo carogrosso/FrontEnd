@@ -3,7 +3,8 @@ import { Proyecto } from 'src/app/model/proyecto.model';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-proyectos',
@@ -16,16 +17,15 @@ export class ProyectosComponent implements OnInit {
   userLogged=this.authService.getUserLogged();
   showAddPro: boolean=false;
   subscription?: Subscription;
-  titulo: string = '';
-  descripcion: string = '';
-  link: string = '';
-  imagen: string = '';
+  titulo: string = null;
+  descripcion: string = null;
+  link: string = null;
+  imagen: string = null;
 
   constructor(
     private proyectoService: ProyectoService,
     private authService:AuthService,
-    private router:Router,
-    private activatedRouter: ActivatedRoute
+    private router:Router
   ) { 
     this.subscription = this.proyectoService.onToggle().subscribe(value =>
       this.showAddPro = value);
@@ -43,11 +43,23 @@ export class ProyectosComponent implements OnInit {
       data => {
         this.ngOnInit();
         this.toggleAddPro();
-        alert("Proyecto añadido");
+        Swal.fire({
+          title: 'Listo!',
+          text: 'Proyecto agregado',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000
+        })
         this.router.navigate(['']);
         f.reset();
       }, err => {
-        alert("No se pudo agregar el proyecto");
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo agregar el proyecto. Todos los campos son obligatorios',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 2000
+        })
       }
     )
   }
@@ -57,8 +69,21 @@ export class ProyectosComponent implements OnInit {
       this.proyectoService.delete(id).subscribe(
         data => {
           this.ngOnInit();
+          Swal.fire({
+            title: 'Listo!',
+            text: 'Proyecto eliminado',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }, err => {
-          alert("No se pudo borrar el proyecto");
+          Swal.fire({
+            title: 'Error',
+            text: 'No se pudo borrar',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 2000
+          });
         }
       )
     }

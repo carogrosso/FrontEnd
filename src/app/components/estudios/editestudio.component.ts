@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Estudio } from 'src/app/model/estudio.model';
 import { EstudioService } from 'src/app/services/estudio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editestudio',
@@ -20,7 +21,6 @@ export class EditestudioComponent implements OnInit {
     this.estudioService.detail(id).subscribe(
       data => {
         this.estu = data;
-        alert(this.estu);
       }, err =>{
         alert("Error al mostrar el estudio");
         this.router.navigate(['']);
@@ -33,9 +33,21 @@ export class EditestudioComponent implements OnInit {
     this.estudioService.update(id, this.estu).subscribe(
       data => {
         this.router.navigate(['']);
-        // this.ngOnInit();
+        Swal.fire({
+          title: 'Listo!',
+          text: 'Estudio modificado',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000
+        })
       }, err =>{
-        alert("Error al modificar el estudio");
+        Swal.fire({
+          title: 'Algo salio mal...',
+          text: 'No se pudo modificar',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 2000
+        });
         this.router.navigate(['']);
       }
     )

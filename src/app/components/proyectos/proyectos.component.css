@@ -1,7 +1,7 @@
 #proyectos{
     padding: 30px 30px;
     height: auto;
-    background-color: #f4f4f4;
+    background-color: #F5F5F5;
 }
 
 /* <!-- BOTON AGREGAR PROYECTO --> */
@@ -33,11 +33,11 @@ label, button{
 }
 
 
-.card{
+.proyecto{
     margin: 20px;
     width: 300px;
-    border-radius: 15px;
-    background-color: #e2efde;
+    align-items: center;
+    text-align: center;
 }
 
 .card-img-top{
@@ -46,8 +46,12 @@ label, button{
     width: 240px;
     height: 240px;
 }
+
 h5{
     margin-top: 10px;
 }
 
+.fotoproyecto{
+    width: 400px;
+}
 

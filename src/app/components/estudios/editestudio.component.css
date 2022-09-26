@@ -4,14 +4,13 @@
     margin-top: 50px; 
     margin-left: auto;
     margin-right: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: #DCEDC8;
-    border: 2px solid #333;
-    border-radius: 20px;
 }
 
 .btn{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#volver{
+    float: right;
 }

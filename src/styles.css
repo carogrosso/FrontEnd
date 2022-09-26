@@ -13,7 +13,7 @@ h1{
     font-size: 60px;
     text-shadow: 3px 3px #555;
     text-align: center;
-    color: #ED6A5A; color: #ee6986; color: #ff5c26; color:#689F38;
+    color: #EE4266;
 }
 
 .btn-primary-edit{
@@ -21,7 +21,7 @@ h1{
 }
 
 .btn-primary-edit:hover{
-    background-color: #CDDC39;
+    background-color: #F7E2E2;
     color: #333;
     border: #555 solid 1px;
     font-style: bold;
