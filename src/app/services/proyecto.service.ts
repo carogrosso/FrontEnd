@@ -7,7 +7,8 @@ import { Proyecto } from '../model/proyecto.model';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private url = 'http://localhost:8080/proyecto'
+  // private url = 'http://localhost:8080/proyecto';
+  private url = 'https://carogrosso-portfolio.herokuapp.com/proyecto';
   private showAddPro: boolean=false;
   private subject = new Subject<any>();
 

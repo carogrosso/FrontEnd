@@ -7,7 +7,8 @@ import { Experiencia } from '../model/experiencia.model';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  private url = 'http://localhost:8080/experiencia'
+  // private url = 'http://localhost:8080/experiencia';
+  private url = 'https://carogrosso-portfolio.herokuapp.com/experiencia';
   private showAddExp: boolean=false;
   private subject = new Subject<any>();
 

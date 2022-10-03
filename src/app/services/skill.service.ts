@@ -7,7 +7,8 @@ import { Skill } from '../model/skill.model';
   providedIn: 'root'
 })
 export class SkillService {
-  private url = 'http://localhost:8080/skill'
+  // private url = 'http://localhost:8080/skill';
+  private url = 'https://carogrosso-portfolio.herokuapp.com/skill';
   private showAddSkill: boolean=false;
   private subject = new Subject<any>();
 

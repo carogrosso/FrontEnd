@@ -7,7 +7,8 @@ import { Estudio } from '../model/estudio.model';
   providedIn: 'root'
 })
 export class EstudioService {
-  private url = 'http://localhost:8080/estudio'
+  // private url = 'http://localhost:8080/estudio';
+  private url = 'https://carogrosso-portfolio.herokuapp.com/estudio';
   private showAddEst: boolean=false;
   private subject = new Subject<any>();
 
