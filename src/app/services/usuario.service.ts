@@ -13,7 +13,8 @@ export class UsuarioService {
   
   // userLoggedObservable = 1;
   
-  url = 'http://localhost:8080/usuario'
+  // private url = 'http://localhost:8080/usuario';
+  private url = 'https://carogrosso-portfolio.herokuapp.com/usuario';
 
   constructor(private http: HttpClient) { }
 
