@@ -20,27 +20,6 @@ export class BotonesLogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Ingresar(){
-    console.log(this.usuario);
-    const { email,password } =this.usuario
-    this.authService.register(email,password).then(res=>{
-      console.log("Se registro el usuario correctamente: ", res);
-    })
-  }
-
-  IngresarConGoogle(){
-    const { email,password } =this.usuario
-    this.authService.loginWithGoogle(email,password).then(res=>{
-      console.log("Se registro el usuario correctamente: ", res);
-    })
-  }
-
-  ObtenerUsuarioLogeado(){
-    this.authService.getUserLogged().subscribe(res=>{
-      console.log(res?.email);
-    })
-  }
-
   logOut(){
     this.authService.logOut()
   }

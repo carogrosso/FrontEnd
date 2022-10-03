@@ -71,7 +71,7 @@ const firebaseConfig = {
       space: 5,
       innerStrokeWidth: 3,
       innerStrokeColor: "#777",
-      outerStrokeColor: "#F7E2E2",
+      outerStrokeColor: "#f1c3c3",
       animationDuration: 500,
       animation: true,
       showSubtitle: true,

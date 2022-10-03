@@ -40,8 +40,4 @@ onSwitch(){
     this.router.navigateByUrl('');
   }
 
-  logOut(){
-    this.authService.logOut()
-  }
-
 }
